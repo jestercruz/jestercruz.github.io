@@ -41,13 +41,16 @@ nav a:hover { color: var(--accent); }
 /* Establish a strong opening section with subtle gradients, not stock imagery. */
 .hero { position: relative; overflow: hidden; background: radial-gradient(circle at 86% 20%, #213f57 0, transparent 40%), linear-gradient(150deg, #0b1728 5%, #101e31 100%); color: #ffffff; }
 .hero::before { content: ""; position: absolute; width: 390px; height: 390px; right: -220px; bottom: -250px; border: 1px solid #31556a; border-radius: 50%; }
-.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.17fr) minmax(330px, .83fr); gap: 70px; align-items: center; padding-block: 105px 110px; }
+/* Fill the visible screen below the 82px navigation plus its 1px border. */
+/* The hero can still grow taller when its content needs extra room on small screens. */
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.17fr) minmax(330px, .83fr); gap: 70px; align-items: center; min-height: calc(100vh - 83px); min-height: calc(100svh - 83px); padding-block: 105px 110px; }
 .eyebrow { display: flex; align-items: center; gap: 11px; margin: 0 0 23px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: 2.5px; text-transform: uppercase; }
 .eyebrow-line { display: block; width: 25px; height: 2px; background: var(--accent); }
 h1, h2, h3, p { margin-top: 0; }
 h1 { max-width: 720px; margin-bottom: 25px; font-size: clamp(39px, 4.5vw, 65px); line-height: 1.11; letter-spacing: -2.8px; font-weight: 720; }
 .gradient-text { color: #82e4d1; }
-.lead { max-width: 680px; color: #c5d2df; font-size: 16px; line-height: 1.85; }
+/* Make the new hero subheading noticeable but visually subordinate to the name. */
+.hero-subtitle { max-width: 530px; margin-bottom: 0; color: #c5d2df; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; font-weight: 400; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 16px; min-height: 46px; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; transition: transform .18s ease; }
 .button:hover { transform: translateY(-2px); }
